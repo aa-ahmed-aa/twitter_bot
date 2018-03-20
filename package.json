@@ -9,6 +9,7 @@
   "author": "aa-ahmed-aa",
   "license": "ISC",
   "dependencies": {
+    "request": "^2.85.0",
     "twit": "^2.2.9"
   }
 }
