@@ -9,12 +9,12 @@ this is a twitter bot that will tweet random verse from the holy quran every min
 
 ## Configuration
 cron package is working the same as cron tab in linux so if you want to change the factor of time see this graph to do so 
-  ┌────────────── second (optional)
-  │ ┌──────────── minute
-  │ │ ┌────────── hour
-  │ │ │ ┌──────── day of month
-  │ │ │ │ ┌────── month
-  │ │ │ │ │ ┌──── day of week
+  ┌────────────── second (optional) <br>
+  │ ┌──────────── minute <br>
+  │ │ ┌────────── hour <br>
+  │ │ │ ┌──────── day of month <br>
+  │ │ │ │ ┌────── month <br>
+  │ │ │ │ │ ┌──── day of week <br>
   │ │ │ │ │ │
   │ │ │ │ │ │
   * * * * * *
