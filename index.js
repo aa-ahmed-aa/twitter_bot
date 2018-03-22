@@ -1,8 +1,11 @@
 const Twit = require('twit');
 const request = require('request');
 const config = require('./config.js');
-
+const cron = require('node-cron');
 const tBot = new Twit(config);
+
+var T = new Twit( config );
+let randomSurah = getRandomInt(1,114);
 
 const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -31,3 +34,8 @@ request(`http://api.alquran.cloud/surah/${randomSurah}`,
   		      tBot.post('statuses/update', { status: randomAya });
             });
     });
+
+cron.schedule('* * * * *', function(){
+    tweetRandomVerse();
+    console.log("i tweeted random verse chell up");
+});
