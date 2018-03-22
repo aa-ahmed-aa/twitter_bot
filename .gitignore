@@ -1,1 +1,8 @@
+#config file
 config.js
+
+# node modules
+node_modules
+
+# editor config
+.vscode

@@ -1,35 +1,33 @@
-var Twit = require('twit');
-var request = require('request');
-var config = require('./config.js');
-fs = require('fs');
+const Twit = require('twit');
+const request = require('request');
+const config = require('./config.js');
 
-var T = new Twit( config );
+const tBot = new Twit(config);
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-}
+const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
 
-let randomSurah = getRandomInt(1,114);
+    //The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min)) + min;
+};
+
+const randomSurah = getRandomInt(1, 114);
 
 //get the sura
-request('http://api.alquran.cloud/surah/'+randomSurah, function (error, response, body) {
-  let result = JSON.parse(body);
-  maxNumberOfAyat  = result['data']['numberOfAyahs']; // Print the HTML for the Google homepage.
-
-  //get the aya
-  let randomNumberofAya = getRandomInt(1,maxNumberOfAyat);
-  request('http://api.alquran.cloud/ayah/'+randomSurah+':'+randomNumberofAya, function (error, response, body) {
-  		let result = JSON.parse(body);
-  		
-  		//get the text of the aya
-  		let randomAya = result['data']['text'];
-
-  		T.post('statuses/update', { status: randomAya }, function(err, data, response) {
-		  console.log(data)
-		});
-
-  });
-
-});
+request(`http://api.alquran.cloud/surah/${randomSurah}`,
+    (error, response, body) => {
+        const result = JSON.parse(body);
+        // Print the HTML for the Google homepage.
+        const maxNumberOfAyat = result.data.numberOfAyahs; 
+        //get the aya
+        const randomNumberofAya = getRandomInt(1, maxNumberOfAyat);
+        
+        request(`http://api.alquran.cloud/ayah/${randomSurah}:${randomNumberofAya}`, 
+            (error, response, body) => {
+  		      const result = JSON.parse(body);
+  		      //get the text of the aya
+  		      const randomAya = result.data.text;
+  		      tBot.post('statuses/update', { status: randomAya });
+            });
+    });

@@ -4,12 +4,27 @@
   "description": "this is twitter bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint ./index.js ./config.js"
   },
-  "author": "aa-ahmed-aa",
+  "engine": {
+    "node": ">=6.0.0",
+    "npm": ">=3.0.0"
+  },
+  "author": "aa-ahmed-aa <ahmedkhaled36@hotmail.com>",
+  "contributors": [
+    {
+      "name": "Mustafa Hussain <mustafah15>",
+      "email": "mustafa.hussain93@gmail.com"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "request": "^2.85.0",
     "twit": "^2.2.9"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.0",
+    "eslint-config-crowdanalyzer": "^1.4.0"
   }
 }
