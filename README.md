@@ -16,7 +16,7 @@ Rron package is working the same as cron tab in linux so if you want to change t
   │ │ │ │ ┌────── month <br>
   │ │ │ │ │ ┌──── day of week <br>
   │ │ │ │ │ │ <br>
-  <p>* &nbsp; * &nbsp; * &nbsp; * &nbsp; * &nbsp; * </p> 
+  <p>*&nbsp;*&nbsp;*&nbsp;*&nbsp;*&nbsp;*</p> 
 
 ## Contribution :point_down:
 feel free to star :star:, fork :fork_and_knife: and issuing about any question :question: or enhancement :construction_worker:
